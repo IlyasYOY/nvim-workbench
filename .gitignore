@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.test-home/
+
+config/nvim/spell/*.spl
+config/nvim/spell/*.sug
+config/nvim/spell/*.add
+config/nvim/lua/ilyasyoy/hidden.lua
+
+NetrwTreeListing
+Session.vim
+nvim.log

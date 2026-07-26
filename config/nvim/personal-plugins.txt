@@ -1,0 +1,8 @@
+agent-review.nvim
+dispatch-kit.nvim
+markdown-tools.nvim
+obs.nvim
+qfstore.nvim
+spellfix.nvim
+test-toggle.nvim
+theme.nvim
