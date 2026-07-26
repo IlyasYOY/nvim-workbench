@@ -83,6 +83,7 @@ update_personal_plugins() {
     local plugin destination
 
     while IFS= read -r plugin; do
+        info "$plugin"
         destination="$PERSONAL_PROJECTS_DIR/$plugin"
         if [ ! -d "$destination/.git" ]; then
             warning "$destination is not installed; skipping"

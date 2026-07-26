@@ -38,16 +38,6 @@ local function pack_specs(specs)
         :totable()
 end
 
-local function pack_name(spec)
-    if type(spec) == "table" and spec.name then
-        return spec.name
-    end
-
-    local src = type(spec) == "table" and spec.src or spec
-    local name = vim.fs.basename(src):gsub("%.git$", "")
-    return name
-end
-
 local function personal_plugin_specs()
     local manifest =
         vim.fs.joinpath(vim.fn.stdpath "config", "personal-plugins.txt")
@@ -144,11 +134,6 @@ local M = {
 
 vim.list_extend(M.specs, personal_plugin_specs())
 local active_specs = pack_specs(M.specs)
-M.update_names = vim.iter(active_specs):map(pack_name):totable()
-
-function M.update()
-    return vim.pack.update(M.update_names, { force = true })
-end
 
 vim.pack.add(active_specs)
 

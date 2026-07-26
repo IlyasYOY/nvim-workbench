@@ -28,7 +28,7 @@ else
   CHECK_NVIM_DEPS :=
 endif
 
-.PHONY: install update check check-lua check-shell check-install check-runtime format-lua
+.PHONY: install update check check-lua check-shell check-install check-update check-runtime format-lua
 
 install:
 	@./sh/install.sh
@@ -36,7 +36,7 @@ install:
 update:
 	@./sh/update.sh
 
-check: check-lua check-shell check-install check-runtime
+check: check-lua check-shell check-install check-update check-runtime
 
 check-lua:
 	@luacheck $(LUA_FILES)
@@ -47,6 +47,9 @@ check-shell:
 
 check-install:
 	@./sh/check-install.sh
+
+check-update:
+	@./sh/check-update.sh
 
 check-runtime: $(CHECK_NVIM_DEPS)
 	@NVIM="$(CHECK_NVIM)" ./sh/check-runtime.sh

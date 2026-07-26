@@ -30,8 +30,17 @@ make update
 ```
 
 The update follows the checkout's configured upstream branch, pulls personal
-plugin checkouts with fast-forward-only updates, and refreshes `vim.pack`
-dependencies.
+plugin checkouts with fast-forward-only updates, and leaves `vim.pack`
+dependencies unchanged.
+
+Update `vim.pack` plugins explicitly from Neovim:
+
+```vim
+:lua vim.pack.update()
+```
+
+Review the proposed changes, then use `:write` to apply them or `:quit` to
+discard them.
 
 ## Check
 
