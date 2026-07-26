@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .test-home/
+.test-deps/
 
 config/nvim/spell/*.spl
 config/nvim/spell/*.sug
