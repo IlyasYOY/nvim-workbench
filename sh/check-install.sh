@@ -18,7 +18,6 @@ while IFS= read -r plugin; do
 done < <(personal_plugins)
 
 ln -s "$test_projects/dotfiles/config/nvim" "$test_config/nvim"
-ln -s "$test_projects/dotfiles/config/nvim-minimal" "$test_config/nvim-minimal"
 
 for _ in 1 2; do
     HOME="$test_home" \
@@ -28,5 +27,3 @@ for _ in 1 2; do
 done
 
 [ "$(readlink "$test_config/nvim")" = "$NVIM_WORKBENCH_DIR/config/nvim" ]
-[ ! -e "$test_config/nvim-minimal" ]
-[ ! -L "$test_config/nvim-minimal" ]

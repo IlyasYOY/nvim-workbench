@@ -23,5 +23,6 @@ XDG_RUNTIME_DIR="$runtime_root/runtime" \
 "${NVIM:-nvim}" --headless -i NONE \
     "+lua assert(vim.fn.exists(':AgentReview') == 2)" \
     "+lua assert(vim.fn.exists(':SpellFix') == 2)" \
+    "+lua local core = require('ilyasyoy.functions.core'); assert(vim.fn.filereadable(core.resolve_relative_to_workbench('config/.golangci.yml')) == 1)" \
     "+lua local core = require('ilyasyoy.functions.core'); assert(vim.fn.filereadable(core.resolve_relative_to_workbench('config/eclipse-my-java-google-style.xml')) == 1)" \
     "+qa"

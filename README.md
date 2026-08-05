@@ -6,7 +6,7 @@ The repository owns:
 
 - the full Neovim configuration under `config/nvim`;
 - personal plugin checkout discovery and updates;
-- Java formatter, Checkstyle, and PMD configuration used by Neovim;
+- GolangCI, Java formatter, Checkstyle, and PMD configuration used by Neovim;
 - static and headless runtime checks.
 
 ## Install
@@ -17,8 +17,6 @@ make install
 
 This links `config/nvim` to `~/.config/nvim` and clones missing personal
 Neovim plugin repositories under `~/Projects/IlyasYOY`.
-It also removes the retired `~/.config/nvim-minimal` link when that link still
-points to the former dotfiles-managed configuration.
 
 Override those defaults with `NVIM_CONFIG_HOME` and
 `ILYASYOY_PERSONAL_PROJECTS_DIR`.

@@ -44,20 +44,6 @@ replace_managed_symlink() {
     success "Linked $link -> $target"
 }
 
-remove_legacy_minimal_config() {
-    local minimal_config
-    local legacy_target
-
-    minimal_config="$(dirname "$NVIM_CONFIG_HOME")/nvim-minimal"
-    legacy_target="$PERSONAL_PROJECTS_DIR/dotfiles/config/nvim-minimal"
-
-    if [ -L "$minimal_config" ] &&
-        [ "$(readlink "$minimal_config")" = "$legacy_target" ]; then
-        rm -f "$minimal_config"
-        success "Removed retired managed link $minimal_config"
-    fi
-}
-
 personal_plugins() {
     sed '/^[[:space:]]*#/d; /^[[:space:]]*$/d' "$PERSONAL_PLUGINS_MANIFEST"
 }
