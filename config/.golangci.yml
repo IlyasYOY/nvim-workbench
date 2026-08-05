@@ -1,5 +1,6 @@
 ---
 
+# golangci-lint version: v2.12.2
 version: "2"
 
 run:
@@ -11,25 +12,38 @@ run:
 linters:
   default: none
   enable:
+    - arangolint
     - asasalint
     - asciicheck
     - bidichk
     - bodyclose
     - canonicalheader
+    - clickhouselint
+    - containedctx
+    - contextcheck
     - copyloopvar
     - cyclop
     - decorder
+    - depguard
+    - dogsled
     - dupl
+    - dupword
     - durationcheck
+    - embeddedstructfieldcheck
     - err113
     - errcheck
+    - errchkjson
     - errname
     - errorlint
     - exhaustive
     - exhaustruct
+    - exptostd
     - fatcontext
     - forbidigo
+    - forcetypeassert
+    - funcorder
     - funlen
+    - ginkgolinter
     - gocheckcompilerdirectives
     - gochecknoglobals
     - gochecknoinits
@@ -38,36 +52,56 @@ linters:
     - goconst
     - gocritic
     - gocyclo
-    - gomodguard
+    - godoclint
+    - godot
+    - godox
+    - gomoddirectives
+    - gomodguard_v2
     - goprintffuncname
     - gosec
+    - gosmopolitan
     - govet
+    - grouper
+    - iface
+    - importas
     - inamedparam
     - ineffassign
     - interfacebloat
+    - intrange
+    - iotamixing
+    - ireturn
     - lll
     - loggercheck
+    - maintidx
     - makezero
     - mirror
+    - misspell
     - mnd
+    - modernize
     - musttag
     - nakedret
     - nestif
     - nilerr
+    - nilnesserr
     - nilnil
+    - nlreturn
     - noctx
+    - noinlineerr
     - nolintlint
     - nonamedreturns
     - nosprintfhostport
+    - paralleltest
     - perfsprint
     - prealloc
     - predeclared
     - promlinter
     - protogetter
     - reassign
+    - recvcheck
     - revive
     - rowserrcheck
     - sloglint
+    - spancheck
     - sqlclosecheck
     - staticcheck
     - tagalign
@@ -78,31 +112,155 @@ linters:
     - tparallel
     - unconvert
     - unparam
+    - unqueryvet
     - unused
     - usestdlibvars
+    - usetesting
+    - varnamelen
     - wastedassign
     - whitespace
     - wrapcheck
+    - wsl_v5
+    - zerologlint
   settings:
+    depguard:
+      rules:
+        main:
+          list-mode: lax
+          files:
+            - $all
+          deny:
+            - pkg: github.com/pkg/errors
+              desc: use the standard library errors package
+    dogsled:
+      max-blank-identifiers: 1
+    dupword:
+      ignore: []
+      comments-only: false
+    embeddedstructfieldcheck:
+      empty-line: true
+      forbid-mutex: true
     errcheck:
       check-type-assertions: true
       check-blank: true
+    errchkjson:
+      check-error-free-encoding: false
+      report-no-exported: true
+    funcorder:
+      constructor: true
+      struct-method: true
+      alphabetical: true
+      function: true
     funlen:
       ignore-comments: true
+    ginkgolinter:
+      suppress-len-assertion: false
+      suppress-nil-assertion: false
+      suppress-err-assertion: false
+      suppress-compare-assertion: false
+      suppress-async-assertion: false
+      suppress-type-compare-assertion: false
+      forbid-focus-container: true
+      allow-havelen-zero: false
+      force-expect-to: true
+      validate-async-intervals: true
+      forbid-spec-pollution: true
+      force-succeed: true
+      force-assertion-description: true
+      force-tonot: true
     gocognit:
       min-complexity: 20
     gocritic:
       enable-all: true
     gocyclo:
       min-complexity: 20
+    godoclint:
+      default: all
+      disable:
+        - require-pkg-doc
+        - require-doc
+      options:
+        max-len:
+          length: 120
+    godot:
+      scope: declarations
+      period: true
+      capital: true
+    godox:
+      keywords:
+        - TODO
+        - BUG
+        - FIXME
+        - HACK
+        - OPTIMIZE
+    gomoddirectives:
+      replace-local: false
+      retract-allow-no-explanation: false
+      exclude-forbidden: true
+      ignore-forbidden: true
+      toolchain-forbidden: false
+      toolchain-pattern: '^go1\.\d+\.\d+$'
+      tool-forbidden: false
+      go-debug-forbidden: false
+      go-version-pattern: '^1\.\d+(\.0)?$'
+      check-module-path: true
+    gomodguard_v2:
+      local-replace-directives: true
+      blocked:
+        - module: github.com/pkg/errors
+          match-type: exact
+          reason: use the standard library errors package
+    gosmopolitan:
+      allow-time-local: false
+      escape-hatches: []
     govet:
       enable-all: true
+    grouper:
+      const-require-single-const: true
+      const-require-grouping: true
+      import-require-single-import: true
+      import-require-grouping: true
+      type-require-single-type: true
+      type-require-grouping: true
+      var-require-single-var: true
+      var-require-grouping: true
+    iface:
+      enable:
+        - identical
+        - unused
+        - opaque
+        - unexported
+    importas:
+      no-unaliased: false
+      no-extra-aliases: true
     interfacebloat:
       max: 3
+    iotamixing:
+      report-individual: true
+    ireturn:
+      allow:
+        - anon
+        - error
+        - empty
+        - stdlib
+        - generic
+    maintidx:
+      under: 30
+    misspell:
+      locale: US
+      mode: default
+    modernize:
+      disable: []
+    nlreturn:
+      block-size: 1
     nolintlint:
       require-explanation: true
       require-specific: true
       allow-unused: false
+    paralleltest:
+      ignore-missing: false
+      ignore-missing-subtests: false
+      check-cleanup: true
     revive:
       confidence: 0.1
       rules:
@@ -111,6 +269,11 @@ linters:
     rowserrcheck:
       packages:
         - github.com/jmoiron/sqlx
+    spancheck:
+      checks:
+        - end
+        - record-error
+        - set-status
     staticcheck:
       checks:
         - -ST1000
@@ -120,6 +283,58 @@ linters:
         - all
     testifylint:
       enable-all: true
+    unqueryvet:
+      check-sql-builders: true
+      check-aliased-wildcard: true
+      check-string-concat: true
+      check-format-strings: true
+      check-string-builder: true
+      check-subqueries: true
+      check-n1: true
+      check-sql-injection: true
+      check-tx-leaks: true
+      sql-builders:
+        squirrel: true
+        gorm: true
+        sqlx: true
+        ent: true
+        pgx: true
+        bun: true
+        sqlboiler: true
+        jet: true
+    usetesting:
+      context-background: true
+      context-todo: true
+      os-chdir: true
+      os-mkdir-temp: true
+      os-setenv: true
+      os-create-temp: true
+      os-temp-dir: true
+    varnamelen:
+      max-distance: 5
+      min-name-length: 3
+      check-receiver: true
+      check-return: true
+      check-type-param: true
+      ignore-type-assert-ok: true
+      ignore-map-index-ok: true
+      ignore-chan-recv-ok: true
+      ignore-names:
+        - err
+        - ctx
+        - i
+        - j
+        - k
+        - t
+        - b
+        - ok
+    wsl_v5:
+      allow-first-in-block: false
+      allow-whole-block: false
+      branch-max-lines: 2
+      case-max-lines: 0
+      cuddle-max-statements: 1
+      default: all
   exclusions:
     generated: lax
     rules:
@@ -151,12 +366,24 @@ linters:
       - tmp
       - var
       - vendor
-  issues:
+
+issues:
   max-same-issues: 50
 
 formatters:
   enable:
+    - gofumpt
     - goimports
+    - golines
+  settings:
+    gofumpt:
+      extra-rules: true
+    golines:
+      max-len: 120
+      tab-len: 4
+      shorten-comments: false
+      reformat-tags: true
+      chain-split-dots: true
   exclusions:
     generated: lax
     paths:
