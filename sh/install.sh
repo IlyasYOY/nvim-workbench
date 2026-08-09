@@ -12,7 +12,6 @@ replace_managed_symlink \
     "$NVIM_WORKBENCH_DIR/config/nvim" \
     "$NVIM_CONFIG_HOME" \
     "$PERSONAL_PROJECTS_DIR/dotfiles/config/nvim"
-remove_legacy_minimal_config
 clone_personal_plugins
 
 success "nvim-workbench installed"
