@@ -1,6 +1,9 @@
 require("obs").setup {
     vault_home = "~/Projects/kb-store",
     vault_name = "kb-store",
+    completion = {
+        fuzzy = true,
+    },
     templater = {
         note_template_name = "zettel",
     },
