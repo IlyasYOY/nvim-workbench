@@ -21,8 +21,5 @@ XDG_STATE_HOME="$runtime_root/state" \
 XDG_CACHE_HOME="$runtime_root/cache" \
 XDG_RUNTIME_DIR="$runtime_root/runtime" \
 "${NVIM:-nvim}" --headless -i NONE \
-    "+lua assert(vim.fn.exists(':AgentReview') == 2)" \
-    "+lua assert(vim.fn.exists(':SpellFix') == 2)" \
-    "+lua local core = require('ilyasyoy.functions.core'); assert(vim.fn.filereadable(core.resolve_relative_to_workbench('config/.golangci.yml')) == 1)" \
-    "+lua local core = require('ilyasyoy.functions.core'); assert(vim.fn.filereadable(core.resolve_relative_to_workbench('config/eclipse-my-java-google-style.xml')) == 1)" \
+    "+lua local ok, err = pcall(dofile, '$NVIM_WORKBENCH_DIR/tests/runtime.lua'); if not ok then print(err); vim.cmd('cquit') end" \
     "+qa"

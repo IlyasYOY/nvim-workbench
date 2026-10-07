@@ -6,7 +6,7 @@ The repository owns:
 
 - the full Neovim configuration under `config/nvim`;
 - personal plugin checkout discovery and updates;
-- GolangCI, Java formatter, Checkstyle, and PMD configuration used by Neovim;
+- GolangCI configuration used by Neovim;
 - static and headless runtime checks.
 
 ## Install

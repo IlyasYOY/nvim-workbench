@@ -11,14 +11,6 @@ require("dispatch-kit").setup {
                 fallback_config = vim.fs.joinpath(config_dir, ".golangci.yml"),
             },
         },
-        java = {
-            pmd = {
-                config = vim.fs.joinpath(config_dir, "pmd.xml"),
-            },
-            checkstyle = {
-                config = vim.fs.joinpath(config_dir, "checkstyle.xml"),
-            },
-        },
         python = true,
         javascript = true,
         proto = true,

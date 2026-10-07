@@ -84,10 +84,6 @@ local function lsp_attach(data)
 
     client.server_capabilities.semanticTokensProvider = nil
 
-    if client.name == "jdtls" then
-        require("jdtls").setup_dap()
-    end
-
     if client.name == "tinymist" then
         vim.api.nvim_buf_create_user_command(
             data.buf,

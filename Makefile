@@ -1,4 +1,4 @@
-LUA_FILES := $(shell find config/nvim -type f -name '*.lua' \
+LUA_FILES := $(shell find config/nvim tests -type f -name '*.lua' \
 	! -path '*/hidden.lua' | sort)
 SHELL_FILES := $(shell find sh -type f -name '*.sh' | sort)
 NVIM ?= nvim

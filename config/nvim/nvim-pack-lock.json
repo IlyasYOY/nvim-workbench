@@ -32,37 +32,9 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/williamboman/mason.nvim"
     },
-    "nvim-dap": {
-      "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
-      "src": "https://github.com/mfussenegger/nvim-dap"
-    },
-    "nvim-dap-go": {
-      "rev": "b4421153ead5d726603b02743ea40cf26a51ed5f",
-      "src": "https://github.com/leoluz/nvim-dap-go"
-    },
-    "nvim-dap-python": {
-      "rev": "1808458eba2b18f178f990e01376941a42c7f93b",
-      "src": "https://github.com/mfussenegger/nvim-dap-python"
-    },
-    "nvim-dap-ui": {
-      "rev": "cc9dd33aade7f20bae414d0cba163bc60d4d4b43",
-      "src": "https://github.com/rcarriga/nvim-dap-ui"
-    },
-    "nvim-dap-virtual-text": {
-      "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
-      "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
-    },
-    "nvim-jdtls": {
-      "rev": "6e9d953f0b82bccdb834cfde0e893f3119c22592",
-      "src": "https://github.com/mfussenegger/nvim-jdtls"
-    },
     "nvim-lspconfig": {
       "rev": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff",
       "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "nvim-nio": {
-      "rev": "edcc181a875301dd21840189aa2f2f9ad69fc172",
-      "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
       "rev": "f603a2f4da48728f80257fb5fbb90145fd1dc173",
@@ -80,10 +52,6 @@
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
-    },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "vim-abolish": {
       "rev": "dcbfe065297d31823561ba787f51056c147aa682",
