@@ -16,6 +16,8 @@ mkdir -p \
 chmod 700 "$runtime_root/runtime"
 ln -s "$NVIM_WORKBENCH_DIR/config/nvim" "$runtime_root/config/nvim"
 
+cd "$runtime_root"
+
 XDG_CONFIG_HOME="$runtime_root/config" \
 XDG_STATE_HOME="$runtime_root/state" \
 XDG_CACHE_HOME="$runtime_root/cache" \

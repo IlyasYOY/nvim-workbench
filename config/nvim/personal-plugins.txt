@@ -1,6 +1,5 @@
 dispatch-kit.nvim
 markdown-tools.nvim
-obs.nvim
 qfstore.nvim
 test-toggle.nvim
 theme.nvim

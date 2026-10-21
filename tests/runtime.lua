@@ -1,9 +1,15 @@
-for _, command in ipairs { "AgentReview", "SpellFix", "DapContinue" } do
+for _, command in ipairs {
+    "AgentReview",
+    "SpellFix",
+    "DapContinue",
+    "ObsNvimNewNote",
+} do
     assert(vim.fn.exists(":" .. command) == 0, command .. " is still available")
 end
 
 local retired_plugins = {
     "agent-review.nvim",
+    "obs.nvim",
     "spellfix.nvim",
     "nvim-dap",
     "nvim-dap-go",
@@ -45,3 +51,14 @@ for _, filetype in ipairs { "java", "go", "python" } do
         assert(vim.fn.exists ":JavaToggleTest" == 0)
     end
 end
+
+assert(vim.g.db_ui_save_location == vim.fn.getcwd() .. "/sql/")
+assert(vim.fn.isdirectory(vim.g.db_ui_save_location) == 1)
+vim.cmd.enew()
+vim.bo.filetype = "sql"
+assert(vim.bo.omnifunc == "vim_dadbod_completion#omni")
+assert(vim.fn.exists ":DBUI" == 2)
+vim.cmd.enew()
+vim.bo.filetype = "markdown"
+assert(vim.fn.maparg("<leader>nn", "n") == "")
+assert(vim.fn.exists ":ObsNvimNewNote" == 0)
