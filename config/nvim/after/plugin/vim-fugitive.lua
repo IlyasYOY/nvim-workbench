@@ -47,6 +47,18 @@ vim.keymap.set(
 
 local fugitive_group = vim.api.nvim_create_augroup("ilyasyoy-fugitive", {})
 
+-- Oil buffers use URLs and acwrite, so Fugitive otherwise falls back to cwd.
+vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost" }, {
+    group = fugitive_group,
+    pattern = "oil://*",
+    callback = function(args)
+        local dir = require("oil").get_current_dir(args.buf)
+        if dir then
+            vim.b[args.buf].git_dir = vim.fn.FugitiveExtractGitDir(dir)
+        end
+    end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     group = fugitive_group,
     pattern = { "git", "fugitive" },

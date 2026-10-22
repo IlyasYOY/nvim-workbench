@@ -62,3 +62,5 @@ vim.cmd.enew()
 vim.bo.filetype = "markdown"
 assert(vim.fn.maparg("<leader>nn", "n") == "")
 assert(vim.fn.exists ":ObsNvimNewNote" == 0)
+
+dofile(core.resolve_relative_to_workbench "tests/fugitive_oil.lua")
